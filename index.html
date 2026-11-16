@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mohammad Salem — Web & Flutter Developer</title>
+<style>
+:root{--bg:#0b0b10;--fg:#f4f1ea;--mut:#8b8b99;--card:#15151d;--line:#262633;--a:#c6ff3d;--b:#ff4fa3;--c:#46d9ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f4f1ea;--fg:#14141a;--mut:#666674;--card:#fff;--line:#dcd8cc;--a:#5a8f00;--b:#d6176f;--c:#0a86a8}}
+:root[data-theme="light"]{--bg:#f4f1ea;--fg:#14141a;--mut:#666674;--card:#fff;--line:#dcd8cc;--a:#5a8f00;--b:#d6176f;--c:#0a86a8}
+:root[data-theme="dark"]{--bg:#0b0b10;--fg:#f4f1ea;--mut:#8b8b99;--card:#15151d;--line:#262633;--a:#c6ff3d;--b:#ff4fa3;--c:#46d9ff}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0}
+body{background:var(--fg0,var(--bg));color:var(--fg);font:16px/1.6 "Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
+#glow{position:fixed;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,var(--a),transparent 65%);opacity:.18;pointer-events:none;transform:translate(-50%,-50%);left:50%;top:30%;z-index:0;transition:left .25s,top .25s}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px 5vw;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--bg) 70%,transparent);border-bottom:1px solid var(--line)}
+nav b{font-weight:700;letter-spacing:-.02em}nav b i{color:var(--a);font-style:normal}
+nav div{display:flex;gap:18px;align-items:center;font-size:14px}nav a{color:var(--mut);text-decoration:none}nav a:hover{color:var(--a)}
+button{font:inherit;cursor:pointer;color:var(--fg);background:none;border:1px solid var(--line);border-radius:99px;padding:4px 12px}
+section{position:relative;z-index:1;padding:90px 5vw;max-width:1200px;margin:auto}
+.hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center}
+.tag{display:inline-block;font:13px ui-monospace,monospace;color:var(--a);border:1px solid var(--a);padding:3px 12px;border-radius:99px;width:max-content;margin-bottom:22px}
+h1{font-size:clamp(46px,11vw,150px);line-height:.88;letter-spacing:-.05em;font-weight:800;text-transform:uppercase}
+h1 span{display:block}
+h1 .o{color:transparent;-webkit-text-stroke:2px var(--fg)}
+h1 .g{background:linear-gradient(90deg,var(--a),var(--c),var(--b),var(--a));background-size:300%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 6s linear infinite}
+@keyframes flow{to{background-position:300%}}
+.sub{margin-top:28px;max-width:560px;color:var(--mut);font-size:18px}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.meta span{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 14px;font-size:14px}
+.marq{overflow:hidden;white-space:nowrap;border-block:1px solid var(--line);background:var(--card);position:relative;z-index:1;transform:rotate(-1.2deg);margin:20px -2vw}
+.marq div{display:inline-block;padding:14px 0;font-size:26px;font-weight:700;animation:m 22s linear infinite}
+.marq em{font-style:normal;color:var(--a);margin:0 22px}
+@keyframes m{to{transform:translateX(-50%)}}
+h2{font-size:clamp(32px,6vw,64px);letter-spacing:-.04em;line-height:1;margin-bottom:34px}h2 small{color:var(--a);font:14px ui-monospace,monospace;display:block;margin-bottom:10px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.st{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:26px;padding:28px;min-height:250px}
+.st .n{font-size:clamp(64px,9vw,104px);font-weight:800;letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums}
+.st p{color:var(--mut);margin-top:6px}.st .up{display:inline-block;margin-top:12px;font:13px ui-monospace,monospace;color:var(--a)}
+.st:nth-child(2) .n{color:var(--b)}.st:nth-child(1) .n{color:var(--a)}.st:nth-child(3) .n{color:var(--c)}
+.fl{position:absolute;inset:0;pointer-events:none}.fl i{position:absolute;bottom:-30px;font-style:normal;font-size:24px;opacity:.55;animation:rise linear infinite}
+@keyframes rise{to{transform:translateY(-330px) rotate(25deg);opacity:0}}
+.bug{animation:crawl linear infinite!important;bottom:14px!important}
+@keyframes crawl{from{transform:translateX(-40px)}to{transform:translateX(420px)}}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.tabs button.on{background:var(--a);color:#0b0b10;border-color:var(--a);font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;transition:.3s;transform-style:preserve-3d}
+.card:hover{border-color:var(--b);box-shadow:8px 8px 0 var(--b);transform:translate(-4px,-4px)}
+.card .k{font:12px ui-monospace,monospace;color:var(--c)}.card h3{font-size:24px;margin:8px 0;letter-spacing:-.03em}.card p{color:var(--mut);font-size:15px}
+.card .t{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}.card .t b{font:12px ui-monospace,monospace;border:1px solid var(--line);padding:2px 9px;border-radius:99px;font-weight:400}
+.card.hide{display:none}
+.lk{display:inline-block;margin-top:14px;color:var(--a);font-weight:700;text-decoration:none;border-bottom:2px solid var(--a)}.lk:hover{color:var(--b);border-color:var(--b)}
+.cl{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}.co{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;transition:.25s}.co:hover{border-color:var(--c);transform:translateY(-4px)}.co h3{font-size:17px;line-height:1.35;letter-spacing:-.02em}.co small{color:var(--mut);display:block;margin:4px 0 16px}.bar{height:8px;background:var(--line);border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--c));border-radius:9px;transition:width 1.6s cubic-bezier(.2,.8,.2,1)}.go .bar i{width:var(--w)}.pc{display:flex;justify-content:space-between;font:12px ui-monospace,monospace;color:var(--mut);margin-top:8px}.pc b{color:var(--a);font-weight:400}
+.ct{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:30px}.ct a{display:inline-block;font-size:16px;font-weight:600;border:1px solid var(--line);background:var(--card);border-radius:99px;padding:10px 22px}
+.about{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.tl{border-inline-start:2px solid var(--a);padding:2px 0 2px 20px;margin-bottom:22px}.tl small{color:var(--a);font-family:ui-monospace,monospace}.tl h3{font-size:22px}.tl p{color:var(--mut)}
+.skills{display:flex;flex-wrap:wrap;gap:10px}.skills span{padding:10px 18px;border-radius:99px;border:1px solid var(--line);background:var(--card);transition:.2s}.skills span:hover{background:var(--b);color:#fff;transform:rotate(-4deg) scale(1.08)}
+footer{position:relative;z-index:1;text-align:center;padding:80px 5vw 60px}
+footer a{display:block;font-size:clamp(28px,7vw,84px);font-weight:800;letter-spacing:-.04em;color:var(--fg);text-decoration:none}footer a:hover{color:var(--a)}
+footer p{color:var(--mut);margin-top:18px;font-size:14px}
+</style>
+</head>
+<body>
+<div id="glow"></div>
+<nav><b>M<i>.</i>SALEM</b><div><a href="#stats">Live stats</a><a href="#work">Work</a><a href="#courses">Courses</a><a href="#about">About</a><button id="th" aria-label="Toggle theme">◐</button></div></nav>
+
+<section class="hero">
+<span class="tag">● available for freelance · <span id="age"></span> y/o</span>
+<h1><span>Mohammad</span><span class="o">Ahmad Khaleel</span><span class="g">Salem</span></h1>
+<p class="sub">Web developer &amp; Flutter learner. I turn coffee into code and bugs into lessons — one commit a day.</p>
+<div class="meta"><span>🎂 25 Dec 2000</span><span>🎓 Udemy · Web Development</span><span>📱 Learning Flutter</span></div>
+</section>
+
+<div class="marq"><div id="mq"></div></div>
+
+<section id="stats">
+<h2><small>/ 01 — live counters</small>Fuel &amp; fixes<br>(they never stop growing)</h2>
+<div class="stats">
+<div class="st"><div class="fl" data-e="☕"></div><div class="n" id="c1">0</div><p>cups of coffee drunk</p><span class="up">+1 every day</span></div>
+<div class="st"><div class="fl" data-e="🐞" data-bug="1"></div><div class="n" id="c2">0</div><p>bugs squashed</p><span class="up">+1 every day</span></div>
+<div class="st"><div class="n" id="c3">0</div><p>days since I started coding</p><span class="up">ticking since day one</span></div>
+</div>
+</section>
+
+<section id="work">
+<h2><small>/ 02 — projects</small>Things I built</h2>
+<div class="tabs" id="tabs"><button class="on" data-f="all">All</button><button data-f="web">Website</button><button data-f="app">App</button></div>
+<div class="grid" id="grid"></div>
+</section>
+
+<section id="about">
+<h2><small>/ 03 — about</small>The story so far</h2>
+<div class="about">
+<div>
+<div class="tl"><small>Udemy</small><h3>Web Development</h3><p>Learned HTML, CSS, JavaScript and building real websites from scratch.</p></div>
+<div class="tl"><small>Now</small><h3>Flutter &amp; Dart</h3><p>Building cross-platform mobile apps from a single codebase.</p></div>
+</div>
+<div><div class="skills"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive Design</span><span>Flutter</span><span>Dart</span><span>Git</span><span>Debugging</span></div></div>
+</div>
+</section>
+
+<section id="courses">
+<h2><small>/ 04 — learning</small>Always leveling up<br>(10 Udemy courses)</h2>
+<div class="cl" id="cl"></div>
+</section>
+
+<footer><a href="https://wa.me/962798025333?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D8%AD%D9%85%D8%AF%D8%8C%20%D8%B4%D9%81%D8%AA%20%D8%A7%D9%84%D9%80%20CV%20%D8%AA%D8%A8%D8%B9%D9%83%20%D9%88%D8%B9%D9%86%D8%AF%D9%8A%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%A8%D8%AF%D9%8A%20%D9%86%D8%AD%D9%83%D9%8A%20%D9%81%D9%8A%D9%87" target="_blank" rel="noopener">Got a project? Let’s talk →</a><p>Websites · Landing pages · Mobile apps — available for freelance work</p><div class="ct"><a href="mailto:mohammadsalem12m@outlook.com">✉ mohammadsalem12m@outlook.com</a><a href="tel:+962798025333">📞 0798025333</a><a href="https://wa.me/962798025333" target="_blank" rel="noopener">💬 WhatsApp</a></div><p>© <span id="yr"></span> Mohammad Ahmad Khaleel Salem</p></footer>
+
+<script>
+// ===== EDIT THESE =====
+var START="2026-01-01";      // date counters started
+var BASE_COFFEE=365;         // cups at START
+var BASE_BUGS=420;           // bugs at START
+var CODING_SINCE="2025-01-01"; // when you began coding
+var PROJECTS=[
+ {t:"Sparkly — Website",c:"web",u:"https://sparkly26.blogspot.com/",d:"Arabic landing site for Sparkly, a calm daily English-learning habit for kids, students and adults: how it works, pricing, FAQ and Android download.",s:["Landing page","Arabic","RTL"]},
+ {t:"Sparkly — The App",c:"app",u:"https://kids.nashmicloud.com/app/",dl:"https://kids.nashmicloud.com/download/sparkly-kids.apk",d:"15-minute daily rounds with 1000+ questions, smart review of mistakes, a kids section, points and day streaks.",s:["App","Streaks","EdTech"]},
+ {t:"Love Universe",c:"web",u:"https://mmyy2000-afk.github.io/love-univaarsty-/",d:"An interactive 3D universe of 300,000 floating “I love you” words in 32 languages. Drag to rotate, zoom to read, morph it into a heart, globe or galaxy, and control it with hand gestures.",s:["3D","Interactive","Hand tracking"]}
+];
+// ======================
+var D=864e5,now=new Date(),days=function(d){return Math.max(0,Math.floor((now-new Date(d))/D))};
+var $=function(i){return document.getElementById(i)};
+var bd=new Date(2000,11,25),age=now.getFullYear()-2000-((now.getMonth()<11||(now.getMonth()==11&&now.getDate()<25))?1:0);
+$("age").textContent=age;$("yr").textContent=now.getFullYear();
+function count(el,to){var t0=performance.now(),dur=1800;(function f(t){var p=Math.min(1,(t-t0)/dur);el.textContent=Math.round(to*(1-Math.pow(1-p,4))).toLocaleString();if(p<1)requestAnimationFrame(f)})(t0)}
+var started=false,io=new IntersectionObserver(function(e){if(e[0].isIntersecting&&!started){started=true;count($("c1"),BASE_COFFEE+days(START));count($("c2"),BASE_BUGS+days(START));count($("c3"),days(CODING_SINCE))}},{threshold:.3});io.observe($("stats"));
+// midnight tick: bump counters live
+setInterval(function(){if(!started)return;var a=BASE_COFFEE+days(START),b=BASE_BUGS+days(START),c=days(CODING_SINCE);if($("c1").textContent!==a.toLocaleString()){$("c1").textContent=a.toLocaleString();$("c2").textContent=b.toLocaleString();$("c3").textContent=c.toLocaleString()}},60000);
+// floating emojis
+document.querySelectorAll(".fl").forEach(function(f){for(var i=0;i<9;i++){var e=document.createElement("i");e.textContent=f.dataset.e;e.style.left=(i*11+Math.random()*8)+"%";e.style.animationDuration=(4+Math.random()*5)+"s";e.style.animationDelay=(-Math.random()*8)+"s";if(f.dataset.bug){e.className="bug";e.style.animationDuration=(5+Math.random()*6)+"s";e.style.left="0";e.style.bottom=(8+i*12)+"px"}f.appendChild(e)}});
+// marquee
+var w=["HTML","CSS","JavaScript","Flutter","Dart","Coffee","Bugs fixed","Responsive","Udemy"],h="";for(var k=0;k<4;k++)w.forEach(function(x){h+=x+"<em>✦</em>"});$("mq").innerHTML=h+h;
+// projects + filter
+$("grid").innerHTML=PROJECTS.map(function(p,i){return '<div class="card" data-c="'+p.c+'"><div class="k">0'+(i+1)+' / '+p.c.toUpperCase()+'</div><h3>'+p.t+'</h3><p>'+p.d+'</p><a class="lk" href="'+p.u+'" target="_blank" rel="noopener">Open project ↗</a>'+(p.dl?' <a class="lk" style="margin-inline-start:18px" href="'+p.dl+'" rel="noopener">Download APK ↓</a>':'')+'<div class="t">'+p.s.map(function(s){return "<b>"+s+"</b>"}).join("")+'</div></div>'}).join("");
+$("tabs").onclick=function(e){var b=e.target.closest("button");if(!b)return;this.querySelectorAll("button").forEach(function(x){x.classList.remove("on")});b.classList.add("on");document.querySelectorAll(".card").forEach(function(c){c.classList.toggle("hide",b.dataset.f!=="all"&&c.dataset.c!==b.dataset.f)})};
+// courses
+var COURSES=[["Build Taxi Booking App like inDriver, OLA & Uber Clone App","Sher Tech",96],["The Complete Full-Stack Web Development Bootcamp","Dr. Angela Yu",61],["الدورة الشاملة لمطور الويب من المستوى المبتدئ إلى المتقدم","CreativeApp Company, Marwa Radwan",25],["Beginning C++ Templates","Umar Lone",12],["Build UBER Clone App Using Flutter and Firebase (2020)","Ufinix Academy",6],["Flutter & Dart for Beginners: Complete Course","Aditya Thakur",0],["Data Structures and Algorithms In C++","Abhinav Raj",0],["Introduction to C++ Programming language","Abderrahmen Litprog",0],["مقدمة إلى الخوارزميات بلغة بايثون","Programming in Arabic",0],["Introduction to Dictionary Data Structure","Lucas Bazilio",0]];
+$("cl").innerHTML=COURSES.map(function(c){return '<div class="co"><h3 dir="auto">'+c[0]+'</h3><small>'+c[1]+'</small><div class="bar"><i style="--w:'+c[2]+'%"></i></div><div class="pc"><span>'+(c[2]?'in progress':'up next')+'</span><b>'+c[2]+'%</b></div></div>'}).join("");
+new IntersectionObserver(function(e,o){if(e[0].isIntersecting){$("courses").classList.add("go");o.disconnect()}},{threshold:.15}).observe($("courses"));
+// cursor glow + theme
+document.addEventListener("pointermove",function(e){$("glow").style.left=e.clientX+"px";$("glow").style.top=e.clientY+"px"});
+$("th").onclick=function(){var r=document.documentElement,l=r.dataset.theme?r.dataset.theme==="light":!matchMedia("(prefers-color-scheme: dark)").matches;r.dataset.theme=l?"dark":"light"};
+</script>
+</body>
+</html>
